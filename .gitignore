@@ -1,3 +1,11 @@
+# git ignore for pdfs and other large files.
+# 
+*.pdf
+
+
+
+
+# Below is the git ignore for C/C++
 # Prerequisites
 *.d
 
