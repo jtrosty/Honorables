@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    border-width: auto;
+    background-color: royalblue;
+    height: 100%;
+}
+
+.site {
+    display: flex;
+    flex-direction: column;
+}
+
+.site .pretend_map {
+    font-size: 24px;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:sandybrown;
+
+}
