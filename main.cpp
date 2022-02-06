@@ -1,4 +1,4 @@
-#incldue <stdio.h> 
+#include <stdio.h> 
 
 int main(void) {
   int userInput = 0;
