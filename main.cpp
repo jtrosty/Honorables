@@ -8,5 +8,6 @@ int main(void) {
   for (int i = 0; i < userInput; i++) { out[i] = '#'; }
   
   for (int i = 0; i < userInput; i++) { printf("%s\n", out); }
+  // test
   return 0;
 }
