@@ -9,9 +9,9 @@ const containerStyle = {
   transform: 'translate(-50%, -50%)',
 }
 
-function WikiComponent() {
+function Wiki() {
   return (
-    <div style={containerStyle}>
+    <>
       <header>
         <h4>Search Wikipedia:</h4>
         <form>
@@ -21,8 +21,8 @@ function WikiComponent() {
           <input type='submit' value='Submit' />
         </form>
       </header>
-    </div>
+    </>
   )
 }
 
-export default React.memo(WikiComponent)
+export default Wiki

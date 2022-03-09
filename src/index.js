@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import WikiComponent from './Wiki'
+import WikiComponent from './components/Wiki'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
