@@ -6,11 +6,7 @@ function Map() {
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map))
-/*const map = new google.maps.Map(document.getElementById('map'), {
-  center: { lat: -34.397, lng: 150.644 },
-  zoom: 8,
-  mapId: 'MAP_ID',
-})*/
+
 export default function MapComp() {
   return (
     <div style={{ width: '50vw', height: '50vh' }}>
