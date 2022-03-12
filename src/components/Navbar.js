@@ -1,13 +1,14 @@
 import React from "react"
+import './Navbar.css'
 
 const Navbar = (props) => {
     return (
-        <div className="Navbar">
-            <a href="Login">Login</a>
+        <nav className="Navbar">
+            <a href="Home">Home</a>
             <a href="Lesson">Lesson</a>
             <a href="Messages">Messages</a>
             <a href="Notes">Notes</a>
-        </div>
+        </nav>
     );
 }
 
