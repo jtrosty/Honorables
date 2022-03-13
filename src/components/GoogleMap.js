@@ -109,5 +109,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyArrhuFsk0oAgl6dKGQOFZjHh4xAqn_ph4',
+  apiKey: 'AIzaSyArrhjHh4xAqn_ph4',
 })(MapContainer)
