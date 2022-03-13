@@ -1,3 +1,45 @@
+<<<<<<< HEAD
+# git ignore for pdfs and other large files.
+# 
+*.pdf
+
+
+
+
+# Below is the git ignore for C/C++
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+=======
 # Logs
 logs
 *.log
@@ -102,3 +144,4 @@ dist
 
 # TernJS port file
 .tern-port
+>>>>>>> ee9ba08970888945dbf2f313b53f3935b36aa6db
