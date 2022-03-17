@@ -1,31 +1,3 @@
-
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato', sans-serif;
-}
-
-.messages,
-.navbar,
-.login {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-}
-
-.navbar {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-
-
-/* This is all the crap that was there initially */
-/*
 .App {
   text-align: center;
 }
@@ -64,5 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-*/

@@ -1,25 +1,33 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
+// 'Routes' was previously 'Switch'
+import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 
 // Component imports
 import Home from './components/Home'
-import GoogleMap from './components/GoogleMap'
-import Navbar from './components/Navbar'
-import Messages from './components/Messages'
+import StudentView from './components/StudentView'
+import ErrorPage from './components/ErrorPage'
 
 function App() {
   return (
-    <div className='container'>
-      <GoogleMap />
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' exact elemetn={Home} />
-          <Route path='/Messages' exact element={Messages} />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/Lesson' exact element={<StudentView />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Routes>
+    </Router>
   )
 }
 
 export default App
+/*
+<GoogleMap />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' exact element={Home} />
+          <Route path='/Messages' exact element={Messages} />
+        </Routes>
+      </Router>
+*/
