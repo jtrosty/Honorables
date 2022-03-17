@@ -1,3 +1,12 @@
+Videos the group has watched to implement parts of the code:
+
+https://www.youtube.com/watch?v=7CqJlxBYj-M - MERN exercise tracker (2 hour)
+https://www.youtube.com/watch?v=I7EDAR2GRVo – MERN tutorial backend connect to front (1 hour)
+https://www.youtube.com/watch?v=CdDXbvBFXLY&t=771s - Google Maps API custom map
+https://www.youtube.com/watch?v=h_d4HNwEleo - Google Maps Search Bar
+https://www.youtube.com/watch?v=8pKjULHzs0s – Bootstrap react tutorial
+https://www.youtube.com/watch?v=UjHT_NKR_gU – React router
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
