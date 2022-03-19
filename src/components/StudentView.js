@@ -6,10 +6,16 @@ import GoogleMap from './GoogleMap'
 
 function StudentView() {
   return (
-    <div>
-      <GoogleMap />
+    <div class="container">
+      <div class = "row">
+        <div class="col-3"> 
+          <Navbar />
+        </div>
+        <div class="col-6"> 
+          <GoogleMap />
+        </div>
 
-      <Navbar />
+      </div>
     </div>
   )
 }
