@@ -1,5 +1,7 @@
 import React from "react"
 
 export default function LessonWindow() {
-    return <a>Lesson Window</a>
+    return <div class="">
+            <a>Lesson Window</a>
+        </div>
 }

@@ -8,17 +8,19 @@ import LessonWindow from './LessonWindow'
 function StudentView() {
   return (
     <div class="container">
-      <div class="row-1">
+      <div class="row">
           <Navbar />
       </div>
       <div class = "row">
-        <div class="col-3"> 
+        <div class="col-6"> 
           <LessonWindow />
         </div>
-        <div class="col-6"> 
+        <div class="container col-6"> 
           <GoogleMap />
         </div>
-
+      </div>
+      <div class="row-1">
+        The bottom
       </div>
     </div>
   )
