@@ -6,6 +6,9 @@ https://www.youtube.com/watch?v=CdDXbvBFXLY&t=771s - Google Maps API custom map
 https://www.youtube.com/watch?v=h_d4HNwEleo - Google Maps Search Bar
 https://www.youtube.com/watch?v=8pKjULHzs0s – Bootstrap react tutorial
 https://www.youtube.com/watch?v=UjHT_NKR_gU – React router
+https://www.youtube.com/watch?v=4dp4JFpOpX0 - Using circleCI and adding test
+https://www.youtube.com/watch?v=ML5egqL3YFE - Jest + React testing library
+https://www.youtube.com/watch?v=slGMKIDg7gM - Very useful tutorial for testing React on CircleCI (Replace 'yarn' with 'npm')
 
 # Getting Started with Create React App
 
