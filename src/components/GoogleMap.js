@@ -8,7 +8,7 @@ import PlacesAutocomplete, {
 const containerStyle = {
   border: '5px solid black',
   padding: '20 10 10 10',
-  // Cant figure out why bottom bar doesnt extend to map border
+  // TODO: Cant figure out why bottom bar doesnt extend to map border
   width: '800px',
   height: '500px',
   position: 'absolute',
