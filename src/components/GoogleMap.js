@@ -7,14 +7,12 @@ import PlacesAutocomplete, {
 
 const containerStyle = {
   border: '5px solid black',
-  padding: '20 10 10 10',
+
   // Cant figure out why bottom bar doesnt extend to map border
-  width: '800px',
-  height: '500px',
-  position: 'absolute',
-  left: '75%',
-  top: '30%',
-  transform: 'translate(-50%, -50%)',
+  width: 'fit-content(500)',
+  height: '800px',
+  style: "border:0",
+  position: 'relative', 
 }
 // Create function that sets geocoordinates from react-geocoordinate
 // {}
