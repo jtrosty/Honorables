@@ -21,13 +21,3 @@ function App() {
 }
 
 export default App
-/*
-<GoogleMap />
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/' exact element={Home} />
-          <Route path='/Messages' exact element={Messages} />
-        </Routes>
-      </Router>
-*/
