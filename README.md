@@ -10,6 +10,10 @@ https://www.youtube.com/watch?v=4dp4JFpOpX0 - Using circleCI and adding test
 https://www.youtube.com/watch?v=ML5egqL3YFE - Jest + React testing library
 https://www.youtube.com/watch?v=slGMKIDg7gM - Very useful tutorial for testing React on CircleCI (Replace 'yarn' with 'npm')
 
+NPM INSTALLS
+
+Please use 'npm install mongoose express' in the 'server' file when you pull the latest version. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
