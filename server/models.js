@@ -2,8 +2,12 @@
 
 const mongoose = require('mongoose')
 // Student Schema
-const StudentSchema = new mongoose.Schema({
-  emailAddress: {
+const userSchema = new mongoose.Schema({
+  status: {
+    type: String,
+    required: true,
+  },
+  username: {
     type: String,
     required: true,
   },
@@ -11,11 +15,15 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
 })
-const Students = mongoose.model('User', StudentSchema)
-module.exports = Students
+const User = mongoose.model('dbase1', userSchema)
+module.exports = User
 
-// Teacher Schema
+/*/ Teacher Schema
 const TeacherSchema = new mongoose.Schema({
   emailAddress: {
     type: String,
@@ -31,4 +39,4 @@ const TeacherSchema = new mongoose.Schema({
   },
 })
 const Teacher = mongoose.model('User', TeacherSchema)
-module.exports = Teacher
+module.exports = Teacher*/
