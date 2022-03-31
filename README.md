@@ -16,6 +16,14 @@ https://www.youtube.com/watch?v=4dp4JFpOpX0 - Using circleCI and adding test
 https://www.youtube.com/watch?v=ML5egqL3YFE - Jest + React testing library
 https://www.youtube.com/watch?v=slGMKIDg7gM - Very useful tutorial for testing React on CircleCI (Replace 'yarn' with 'npm')
 
+This is done in the 'client' directory
+
+npm install react-router-dom
+npm install google-maps-react
+npm install react-places-autocomplete
+npm install bootstrap
+npm install react-bootstrap
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
