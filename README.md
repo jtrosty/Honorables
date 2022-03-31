@@ -1,3 +1,9 @@
+3.31.2022 - Please use these dependencies for the back end
+npm install express mongoose cors nodemon
+
+nodemon is optional, but it will cause the server to automatically re-start anytime you make changes to the backend, effectivly verifying that each time you save, the changes dont break the code)
+If you dont want to use nodemon, you will need to change the package.json in the server folder from "start": "nodemon server.js" to "start": "server.js"
+
 Videos the group has watched to implement parts of the code:
 
 https://www.youtube.com/watch?v=7CqJlxBYj-M - MERN exercise tracker (2 hour)
