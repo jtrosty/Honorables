@@ -8,13 +8,13 @@ jobs:
 
     steps: 
       - checkout
+      -
+        run: "npm init -y"
       - 
         restore_cache: 
           keys: 
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      -
-        run: "npm init -y"
       - 
         run: "npm install"
       -
