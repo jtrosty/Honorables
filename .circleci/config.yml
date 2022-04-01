@@ -3,9 +3,11 @@ jobs:
   build: 
     docker: 
       - 
-        image: "circleci/node@5.0.2"
+        image: "cimg/node:17.2.0"
     steps: 
       - checkout
+      -
+        run: "npm init -y"
       - 
         run: "npm install"
       - 
