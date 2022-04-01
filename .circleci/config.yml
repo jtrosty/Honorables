@@ -10,7 +10,7 @@ jobs:
         run: "npm install"
       - 
         run: "npm build"
-    working_directory: ~/repo
+    working_directory: /jtrosty/Honorables
   run: 
     docker: 
       - 
