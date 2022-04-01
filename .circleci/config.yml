@@ -18,6 +18,8 @@ jobs:
       - 
         run: "npm install"
       -
+        run: "npm install jest-cli"
+      -
         run: "npm test App.test.js"
       - 
         save_cache: 
