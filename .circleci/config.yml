@@ -18,7 +18,7 @@ jobs:
       - 
         run: "npm install"
       -
-        run: "npm test"
+        run: "npm test a"
       - 
         save_cache: 
           key: v1-dependencies-{{ checksum "package.json" }}
