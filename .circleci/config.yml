@@ -11,27 +11,28 @@ jobs:
     docker:
       # Add node to build 
       - image: node:17.2.0
-    working_directory: ~/client
+    working_directory: ../client
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
       # Download and cache dependencies
       - restore_cache:
-        keys:
+          keys:
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run: npm install
 
       - save_cache:
-        paths:
-          - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-  run: npm test
-  run: npm build
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm test
+      - run: npm build
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  run:
     docker:
       - image: cimg/base:stable
     # Add steps to the job
@@ -48,4 +49,4 @@ workflows:
   run-workflow:
     jobs:
       - run
-      - say-hello
+      - build
