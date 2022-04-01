@@ -22,7 +22,7 @@ jobs:
         run: "npm test"
       - 
         run: "npm build"
-    working_directory: ~/
+    working_directory: ~/sankBranch2
   run: 
     docker: 
       - 
