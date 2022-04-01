@@ -22,7 +22,7 @@ jobs:
         run: "npm test"
       - 
         run: "npm build"
-    working_directory: ~/Honorables/client
+    working_directory: ~/client
   run: 
     docker: 
       - 
