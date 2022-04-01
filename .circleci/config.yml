@@ -7,9 +7,9 @@ jobs:
     steps: 
       - checkout
       - 
-        run: "yarn install"
+        run: "npm install"
       - 
-        run: "yarn build"
+        run: "npm build"
     working_directory: ~/repo
   run: 
     docker: 
