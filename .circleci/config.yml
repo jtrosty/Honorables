@@ -22,7 +22,7 @@ jobs:
         run: "npm test"
       - 
         run: "npm build"
-    working_directory: $(Build.SourcesDirectory)/client
+    working_directory: ~/public
   run: 
     docker: 
       - 
