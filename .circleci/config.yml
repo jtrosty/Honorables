@@ -3,14 +3,14 @@ jobs:
   build: 
     docker: 
       - 
-        image: "cimg/node:17.2.0"
+        image: "circleci/node@5.0.2"
     steps: 
       - checkout
       - 
         run: "npm install"
       - 
         run: "npm build"
-    working_directory: /jtrosty/Honorables
+    working_directory: ~/repo
   run: 
     docker: 
       - 
