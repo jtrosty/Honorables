@@ -45,7 +45,7 @@ test('renders learn react link', () => {
   const linkElement = screen.getByText(/learning experience/i)
   expect(linkElement).toBeInTheDocument()
 })*/
-// Testing GoogleMap component
+// Testing GoogleMap component -
 /*test('renders learn react link', () => {
   render(<GoogleMap />)
   expect(console.log).toHaveBeenCalledWith('Success')
