@@ -16,6 +16,7 @@ export default function LessonWindow() {
         const [coordinates, setCoordinates] = useState([]);
         const [description, setDescription] = useState("");
         const [image, setImage] = useState("");
+        const [wikiUrl, setWikiUrl] = useState("");
 
         //to display what is currently at the get request
         useEffect(() => {
@@ -25,11 +26,12 @@ export default function LessonWindow() {
 
         function handle() {
                 //alert("Hello");
-                setAssignment(100);
+                //setAssignment(100);
                 //setTitleUI(titleUI);
                 var titleDraft = titleUI;
                 var titleFinal = titleDraft.replace(/\s/g, '%20');
                 var description;
+                var wikiUrl;
 
                 var url = "https://en.wikipedia.org/w/api.php"; 
                 url = url + "?origin=*";
@@ -84,7 +86,37 @@ export default function LessonWindow() {
                    setCoordinates(coordinates);
                }
        })
-       
+
+       //wikiUrl 
+       url = "https://en.wikipedia.org/w/api.php"; 
+        url = url + "?origin=*";
+        
+params = {
+            //params for the url
+            action: "query",
+            format: "json",
+            //prop: "extracts&exintro&explaintext", what we were using to get the whole summary 
+            prop: "info",
+            inprop: "url",
+            titles: titleFinal
+            
+};
+
+Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+
+
+        fetch(url)
+   .then(res  => 
+       res.json()).then(d => {
+           //console.log(d);
+           var pages2 = d.query.pages;
+           for(var page2 in pages2){
+               wikiUrl = pages2[page2].fullurl;
+                setWikiUrl(wikiUrl);
+           }
+       })
+
+
 
 
         //createEvent();
@@ -102,7 +134,8 @@ export default function LessonWindow() {
                         title: titleUI,
                         coordinates: coordinates, 
                         description: description, 
-                        image: image
+                        image: image,
+                        wikiUrl: wikiUrl
 
                 }).then((reponse) => {
                         alert("WikiEvent created");
@@ -112,21 +145,43 @@ export default function LessonWindow() {
                                 title: titleUI,
                                 coordinates,
                                 description,
-                                image
+                                image,
+                                wikiUrl
                         }])
                 }) 
-
+                setAssignment();
                 setTitle("");
                 setCoordinates([]);
                 setDescription("");
                 setImage("");
+                setWikiUrl("");
+        }
+
+        function displayAssignment(){
+                alert(assignment);
         }
         
+        function getAssignment(){
+                return(
+                        <div>
+                                <h1>Assignment: {assignment}</h1>
+                        </div>
+                )
+        }
 
     return <div class="container">
            <div className = "createLesson">
                 
            </div>
+
+                <div>
+                        <input type="number" placeholder = "Assignment Number..." onChange={(event) => {
+                                setAssignment(event.target.value);
+                        }}/>
+
+                        <button onClick={displayAssignment}>Update Assignment #</button>
+
+                </div>
 
                 <div> 
         
@@ -136,8 +191,29 @@ export default function LessonWindow() {
                 }}/>
 
                 <button onClick={handle}> Add Details </button>
-                <button onClick={createEvent}> Post Event </button>
 
+
+                </div>
+                
+                <div>
+
+                <input type="text" placeholder = "Description..." onChange={(event) =>
+                {
+                        setDescription(event.target.value);
+                }}/>
+
+                </div>
+
+                <div>
+                <button onClick={createEvent}> Post Event </button>
+                </div>
+
+                
+
+                <div>
+        <h1> Assignment: {assignment}</h1>
+                        <h1>Title: {titleUI}</h1>
+        <h1>Description: {description}</h1>
 
                 </div>
 

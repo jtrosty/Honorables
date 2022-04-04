@@ -16,7 +16,11 @@ const wikiDataSchema = new mongoose.Schema({
     }, 
     image: {
         type: String
+    },
+    wikiUrl: {
+        type: String
     }
+
 });
 
 //will automatically create table inside of mongodb if it does not exist 
