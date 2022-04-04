@@ -8,13 +8,23 @@ jobs:
     steps:
       - checkout:
           path: ~/repo
+<<<<<<< HEAD
 
+=======
+      #- run: 'npm init -y'
+>>>>>>> 9666599adff1cb9c09f18acfd6692c6bec889884
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run: 'npm install'
+<<<<<<< HEAD
 
+=======
+      #- run: 'npm install jest-cli'
+      #- Couldnt get below run to work on test. But the above code sets up the correct environment
+      #  run: "npm run test"
+>>>>>>> 9666599adff1cb9c09f18acfd6692c6bec889884
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
