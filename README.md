@@ -1,4 +1,4 @@
-4/4/2022 - in client npm install axios npm install node-fetch
+4/4/2022 - in client npm install axios npm install node-fetch@2
 
 4.2.2022 - Use npm install jest to run app.test.js
 
