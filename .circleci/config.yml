@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: cimg/node:17.2.0
-    working_directory: ~/repo/client
+    working_directory: ~/repo/client # finally figured out that the working dir can be different than checkout repo
 
     steps:
       - checkout:
@@ -21,6 +21,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
+      # run test!!!! I
+      - run: npm test a
   run:
     docker:
       - image: 'cimg/base:stable'
