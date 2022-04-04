@@ -51,8 +51,10 @@ test('renders learn react link', () => {
   expect(console.log).toHaveBeenCalledWith('Success')
 })*/
 // Testing LessonWindow component
+/*
 test('renders learn react link', () => {
   render(<LessonWindow />)
   const linkElement = screen.getByText(/Search/i)
   expect(linkElement).toBeInTheDocument()
 })
+*/
