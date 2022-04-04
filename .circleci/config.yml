@@ -1,44 +1,37 @@
---- 
-jobs: 
-  build: 
-    docker: 
-      - 
-        image: cimg/node:17.2.0
-    working_directory: ~/repo    
+---
+jobs:
+  build:
+    docker:
+      - image: cimg/node:17.2.0
+    working_directory: ~/repo/client # finally figured out that the working dir can be different than checkout repo
 
-    steps: 
-      - checkout
-      -
-        run: "npm init -y"
-      - 
-        restore_cache: 
-          keys: 
+    steps:
+      - checkout:
+          path: ~/repo
+ 
+      - restore_cache:
+          keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - 
-        run: "npm install"
-      -
-        run: "npm install jest-cli"
-      #- Couldnt get below run to work on test. But the above code sets up the correct environment
-      #  run: "npm run test"
-      - 
-        save_cache: 
+      - run: 'npm install'
+
+      - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
-          paths: 
+          paths:
             - node_modules
-  run: 
-    docker: 
-      - 
-        image: "cimg/base:stable"
-    steps: 
+      # run test!!!! I
+      - run: npm test a
+  run:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
       - checkout
-      - 
-        run: 
-          command: "echo Hello, World run!"
+      - run:
+          command: 'echo Hello, World run!'
           name: Run
 version: 2.1
-workflows: 
-  run-workflow: 
-    jobs: 
+workflows:
+  run-workflow:
+    jobs:
       - run
       - build
