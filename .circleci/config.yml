@@ -15,7 +15,7 @@ jobs:
             - v1-dependencies-
       - run: 'npm install'
       - run: 'npm install axios'
-      - run: 'npm install node-fetch@2'
+      - run: 'npm install node-fetch@2' 
 
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
