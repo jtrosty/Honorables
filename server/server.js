@@ -1,17 +1,11 @@
 // Load mongoose
 const express = require('express')
 const mongoose = require('mongoose')
-const User = require('./models/models')
-//For the wikidata 
-const wikiDataModel = require('./models/wikiData')
-
-const cors = require('cors') 
+const User = require('./models')
 
 const app = express()
 
-
 app.use(express.json())
-app.use(cors());
 // Connect to mongoDB - Not sure if you guys wanted to use a specific credentials
 mongoose.connect(
   'mongodb+srv://Honorables:CEN3031@imapcluster.jfezn.mongodb.net/HonorablesCluster?retryWrites=true&w=majority',
@@ -66,24 +60,6 @@ app.post('/register', function (req, res) {
   })
   newStudent.save()
 })
-
-app.get("/getWikiData", (req, res) => {
-  wikiDataModel.find({}, (err, result1) => {
-    if(err){
-      res.json(err);
-    }else {
-      res.json(result1);
-    }
-  });
-});
-
-app.post("/createWikiData", async (req, res) => {
-  const wikiData = req.body;
-  const newWikiData = new wikiDataModel(wikiData);
-  await newWikiData.save();
-
-  res.json(wikiData);
-});
 
 // Sets the app to use port 3000
 app.listen(3000, () => {
