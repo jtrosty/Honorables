@@ -1,3 +1,5 @@
+4.2.2022 - Use npm install jest to run app.test.js
+
 3.31.2022 - Please use these dependencies for the back end
 npm install express mongoose cors nodemon (INSTALL IN SERVER DIRECTORY)
 
