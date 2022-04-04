@@ -2,10 +2,17 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+<<<<<<< HEAD
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+=======
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
+>>>>>>> master
   },
   "keywords": [],
   "author": "",
@@ -13,7 +20,11 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
+<<<<<<< HEAD
+    "mongoose": "^6.2.4",
+=======
     "mongoose": "^6.2.9",
+>>>>>>> master
     "nodemon": "^2.0.15"
   }
 }
