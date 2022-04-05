@@ -1,5 +1,5 @@
-import React from "react"
+import React from 'react'
 
 export default function Messages() {
-    return <a>Messages</a>
+  return <a>Messages</a>
 }
