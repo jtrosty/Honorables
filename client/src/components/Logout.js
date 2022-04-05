@@ -1,5 +1,5 @@
-import React from "react"
+import React from 'react'
 
 export default function Logout() {
-    return <a>Logout</a>
+  return <a>Logout</a>
 }
