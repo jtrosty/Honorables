@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import StudentView from './components/StudentView'
 import ErrorPage from './components/ErrorPage'
+import TeacherView from './components/TeacherView'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Lesson' exact element={<StudentView />} />
+        <Route path='/TeacherView' exact element={<TeacherView />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>

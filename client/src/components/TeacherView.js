@@ -5,8 +5,8 @@ import Messages from './Messages'
 import GoogleMap from './GoogleMap'
 import LessonWindow from './LessonWindow'
 
-function StudentView() {
-  const access = 'Student'
+function TeacherView() {
+  const access = 'Teacher'
   return (
     <div class='container'>
       <div class='row'>
@@ -25,4 +25,4 @@ function StudentView() {
   )
 }
 
-export default StudentView
+export default TeacherView

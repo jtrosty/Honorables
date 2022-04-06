@@ -4,6 +4,12 @@ import { Container, Row, Col, Button, Alert, Card, Form } from 'react-bootstrap'
 import map from '../img/map.jpg'
 
 function Home() {
+  const [accessLevel, setAccessLevel] = React.useState('')
+
+  function handleAccessChange(event) {
+    setAccessLevel(event.target.value)
+  }
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -28,10 +34,14 @@ function Home() {
               <Col md>
                 <Form.Group controlId='formSelect'>
                   <Form.Label>Describe Yourself</Form.Label>
-                  <Form.Select aria-label='Default select example'>
+                  <Form.Select
+                    value={accessLevel}
+                    onChange={handleAccessChange}
+                    aria-label='Default select example'
+                  >
                     <option>Choose Your Title</option>
-                    <option value='1'>Teacher</option>
-                    <option value='2'>Student</option>
+                    <option>Teacher</option>
+                    <option>Student</option>
                   </Form.Select>
                 </Form.Group>
               </Col>
@@ -40,7 +50,7 @@ function Home() {
               variant='secondary'
               type='submit'
               style={{ marginBottom: '15px' }}
-              href='/Lesson'
+              href={accessLevel === 'Teacher' ? '/TeacherView' : '/Lesson'}
             >
               Login
             </Button>
