@@ -8,6 +8,7 @@ import Home from './components/Home'
 import StudentView from './components/StudentView'
 import ErrorPage from './components/ErrorPage'
 import TeacherView from './components/TeacherView'
+import Messages from './components/Messages'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/Lesson' exact element={<StudentView />} />
         <Route path='/TeacherView' exact element={<TeacherView />} />
+        <Route path='/Messages' exact element={<Messages />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>

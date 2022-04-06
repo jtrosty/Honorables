@@ -1,7 +1,7 @@
 // Load mongoose
 const express = require('express')
 const mongoose = require('mongoose')
-const User = require('./models/models')
+const SModel = require('./models/studentModel')
 //For the wikidata
 const wikiDataModel = require('./models/wikiData')
 
@@ -57,7 +57,7 @@ app.post('/register', function (req, res) {
   const password = req.body.password
   const email = req.body.email
 
-  const newStudent = new User({
+  const newStudent = new SModel({
     status,
     username,
     password,
