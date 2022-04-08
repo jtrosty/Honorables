@@ -141,6 +141,8 @@ export default function LessonWindow() {
         description: description,
         image: image,
         wikiUrl: wikiUrl,
+        teacherQuestion: teacherQuestion,
+        questionAnswer: questionAnswer
       })
       .then((reponse) => {
         alert('WikiEvent created')
@@ -154,6 +156,8 @@ export default function LessonWindow() {
             description,
             image,
             wikiUrl,
+            teacherQuestion,
+            questionAnswer
           },
         ])
       })
@@ -163,6 +167,8 @@ export default function LessonWindow() {
     setDescription('')
     setImage('')
     setWikiUrl('')
+    setTeacherQuestion("")
+    setQuestionAnswer("")
   }
 
   function displayAssignment() {
