@@ -20,23 +20,5 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 })
-const User = mongoose.model('dbase1', userSchema)
-module.exports = User
-
-/*/ Teacher Schema
-const TeacherSchema = new mongoose.Schema({
-  emailAddress: {
-    type: String,
-    required: true,
-  },
-  teacherID: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-})
-const Teacher = mongoose.model('User', TeacherSchema)
-module.exports = Teacher*/
+const SModel = mongoose.model('Users', userSchema)
+module.exports = SModel

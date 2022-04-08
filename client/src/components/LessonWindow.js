@@ -17,6 +17,8 @@ export default function LessonWindow() {
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
   const [wikiUrl, setWikiUrl] = useState('')
+  const [teacherQuestion, setTeacherQuestion] = useState('')
+  const [questionAnswer, setQuestionAnswer] = useState('')
 
   //to display what is currently at the get request
   useEffect(() => {
@@ -178,8 +180,49 @@ export default function LessonWindow() {
   return (
     <div class='container'>
       <div className='createLesson'></div>
-
-      <div>
+      <div
+        className='d-flex justify-content-center'
+        style={{ marginTop: '5px' }}
+      >
+        <textarea
+          rows='5'
+          cols='46'
+          placeholder='Question'
+          onChange={(event) => {
+            setTeacherQuestion(event.target.value)
+          }}
+        ></textarea>
+      </div>
+      <div
+        className='d-flex justify-content-center'
+        style={{ marginTop: '5px' }}
+      >
+        <textarea
+          rows='2'
+          cols='46'
+          placeholder='Answer'
+          onChange={(event) => {
+            setQuestionAnswer(event.target.value)
+          }}
+        ></textarea>
+      </div>
+      <div
+        className='d-flex justify-content-center'
+        style={{ marginTop: '5px' }}
+      >
+        <textarea
+          rows='2'
+          cols='46'
+          placeholder='Description...'
+          onChange={(event) => {
+            setDescription(event.target.value)
+          }}
+        ></textarea>
+      </div>
+      <div
+        className='d-flex justify-content-center'
+        style={{ marginTop: '5px' }}
+      >
         <input
           type='number'
           placeholder='Assignment Number...'
@@ -191,7 +234,10 @@ export default function LessonWindow() {
         <button onClick={displayAssignment}>Update Assignment #</button>
       </div>
 
-      <div>
+      <div
+        className='d-flex justify-content-center'
+        style={{ marginTop: '5px' }}
+      >
         <input
           type='text'
           placeholder='Event Title...'
@@ -203,17 +249,10 @@ export default function LessonWindow() {
         <button onClick={handle}> Add Details </button>
       </div>
 
-      <div>
-        <input
-          type='text'
-          placeholder='Description...'
-          onChange={(event) => {
-            setDescription(event.target.value)
-          }}
-        />
-      </div>
-
-      <div>
+      <div
+        className='d-flex justify-content-center'
+        style={{ marginTop: '5px' }}
+      >
         <button onClick={createEvent}> Post Event </button>
       </div>
 

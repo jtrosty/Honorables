@@ -11,8 +11,8 @@ const containerStyle = {
   // Cant figure out why bottom bar doesnt extend to map border
   width: 'fit-content(500)',
   height: '800px',
-  style: "border:0",
-  position: 'relative', 
+  style: 'border:0',
+  position: 'relative',
 }
 // Create function that sets geocoordinates from react-geocoordinate
 // {}
