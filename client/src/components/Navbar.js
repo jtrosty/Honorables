@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Profile from './Profile'
 
 const Navbar = (props) => {
   return (
@@ -34,6 +35,11 @@ const Navbar = (props) => {
           <li class='nav-item'>
             <a class='nav-link' href='Notes'>
               Notes
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/'>
+              <Profile />
             </a>
           </li>
           <li class='nav-item'>

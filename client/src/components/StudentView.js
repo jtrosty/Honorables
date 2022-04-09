@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Messages from './Messages'
 import GoogleMap from './GoogleMap'
 import LessonWindow from './LessonWindow'
+import Profile from './Profile'
 
 function StudentView() {
   const access = 'Student'
@@ -11,6 +12,7 @@ function StudentView() {
     <div class='container'>
       <div class='row'>
         <Navbar access={access} />
+        <Profile />
       </div>
       <div class='row'>
         <div class='col-6'>
