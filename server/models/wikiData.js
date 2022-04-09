@@ -19,7 +19,14 @@ const wikiDataSchema = new mongoose.Schema({
     },
     wikiUrl: {
         type: String
+    },
+    teacherQuestion: {
+        type: String
+    }, 
+    questionAnswer: {
+        type: String
     }
+    
 
 });
 
