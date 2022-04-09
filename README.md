@@ -20,13 +20,19 @@ https://www.youtube.com/watch?v=4dp4JFpOpX0 - Using circleCI and adding test
 https://www.youtube.com/watch?v=ML5egqL3YFE - Jest + React testing library
 https://www.youtube.com/watch?v=slGMKIDg7gM - Very useful tutorial for testing React on CircleCI (Replace 'yarn' with 'npm')
 
+# To setup work enviorment, in a fresh folder perform git clone, then:
 This is done in the 'client' directory
-
 npm install react-router-dom
 npm install google-maps-react
 npm install react-places-autocomplete
 npm install bootstrap
 npm install react-bootstrap
+npm install axios
+npm install node-fetch@2
+npm install @auth0/auth0-react
+
+In the 'server' directory
+npm install mongoose
 
 # Getting Started with Create React App
 
@@ -98,3 +104,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Chekcing out a branch and merging
+1. Before starting a new feature/bug - pull main - git pull
+2. checkout your new branch - git checkout -b your-branch
+3. make your changes and commit to your branch using
+4. When all changes are done, git push to make sure everything is on remote and create a pull request
+5. we all code review the pull request once its approved, make sure its up to date with main by rebasing.
+6. resolve any merge conflicts that might occur during the rebase
+7. merge it into main so everyone else now has your code

@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Button, Alert, Card, Form } from 'react-bootstrap'
 import map from '../img/map.jpg'
+import LoginButton from './Login'
 
 function Home() {
   const [accessLevel, setAccessLevel] = React.useState('')
@@ -46,14 +47,7 @@ function Home() {
                 </Form.Group>
               </Col>
             </Row>
-            <Button
-              variant='secondary'
-              type='submit'
-              style={{ marginBottom: '15px' }}
-              href={accessLevel === 'Teacher' ? '/TeacherView' : '/Lesson'}
-            >
-              Login
-            </Button>
+            <LoginButton />
           </Form>
           <Card className='mb-3' style={{ color: '#000' }}>
             <Card.Img variant='top' src={map} style={{ height: '25rem' }} />
