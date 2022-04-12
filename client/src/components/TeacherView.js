@@ -6,21 +6,28 @@ import GoogleMap from './GoogleMap'
 import LessonWindow from './LessonWindow'
 
 function TeacherView() {
+  const [mapCoordinates, setMapCoordinates] = React.useState([])
+
+  React.useEffect(() => {
+    console.log(mapCoordinates)
+    setMapCoordinates(mapCoordinates)
+  }, [mapCoordinates])
+
   const access = 'Teacher'
   return (
-    <div class='container'>
-      <div class='row'>
+    <div className='container'>
+      <div className='row'>
         <Navbar access={access} />
       </div>
-      <div class='row'>
-        <div class='col-6'>
-          <LessonWindow />
+      <div className='row'>
+        <div className='col-6'>
+          <LessonWindow setMapCoordinates={setMapCoordinates} />
         </div>
-        <div class='container col-6'>
-          <GoogleMap />
+        <div className='container col-6'>
+          <GoogleMap mapCoordinates={mapCoordinates} />
         </div>
       </div>
-      <div class='row-1'>The bottom</div>
+      <div className='row-1'>The bottom</div>
     </div>
   )
 }

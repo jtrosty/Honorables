@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const fetch = require('node-fetch')
 
-export default function LessonWindow() {
+export default function LessonWindow({ setMapCoordinates }) {
   //listOfEvents is from the get request
   //var descriptionTest = await fetchDescriptionJSON(titleUI);
   //console.log(descriptionTest);
@@ -19,6 +19,9 @@ export default function LessonWindow() {
   const [wikiUrl, setWikiUrl] = useState('')
   const [teacherQuestion, setTeacherQuestion] = useState('')
   const [questionAnswer, setQuestionAnswer] = useState('')
+  // Adding parent coordinate setter
+  // const [parentCoors, setParentCoors] = useState([])
+  // Adding setter for parent coordinate setter
 
   //to display what is currently at the get request
   useEffect(() => {
@@ -31,6 +34,7 @@ export default function LessonWindow() {
     //alert("Hello");
     //setAssignment(100);
     //setTitleUI(titleUI);
+    setMapCoordinates([])
     var titleDraft = titleUI
     var titleFinal = titleDraft.replace(/\s/g, '%20')
     var description
@@ -91,7 +95,11 @@ export default function LessonWindow() {
           coordinates[0] = pages1[page1].coordinates[0].lat
           coordinates[1] = pages1[page1].coordinates[0].lon
           setCoordinates(coordinates)
+          console.log('weeee')
+          setMapCoordinates(coordinates)
+          //setMapCoordinates([])
         }
+        // Drilling in from parent component to pass to GoogleMap component
       })
 
     //wikiUrl
@@ -142,7 +150,7 @@ export default function LessonWindow() {
         image: image,
         wikiUrl: wikiUrl,
         teacherQuestion: teacherQuestion,
-        questionAnswer: questionAnswer
+        questionAnswer: questionAnswer,
       })
       .then((reponse) => {
         alert('WikiEvent created')
@@ -157,7 +165,7 @@ export default function LessonWindow() {
             image,
             wikiUrl,
             teacherQuestion,
-            questionAnswer
+            questionAnswer,
           },
         ])
       })
@@ -167,8 +175,8 @@ export default function LessonWindow() {
     setDescription('')
     setImage('')
     setWikiUrl('')
-    setTeacherQuestion("")
-    setQuestionAnswer("")
+    setTeacherQuestion('')
+    setQuestionAnswer('')
   }
 
   function displayAssignment() {

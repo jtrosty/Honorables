@@ -2,18 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import WikiComponent from './Wiki'
 import reportWebVitals from './reportWebVitals'
-import { Auth0Provider } from "@auth0/auth0-react"
+import { Auth0Provider } from '@auth0/auth0-react'
 
 ReactDOM.render(
   //<React.StrictMode>
   <Auth0Provider
-    domain="dev-itxholhm.us.auth0.com"
-    clientId="fIYYSEMQ9OBM0fkL6gOu0yc5CaB5CFVS"
+    domain='dev-itxholhm.us.auth0.com'
+    clientId='fIYYSEMQ9OBM0fkL6gOu0yc5CaB5CFVS'
     redirectUri={window.location.origin}
-    >
-  <App />
+  >
+    <App />
   </Auth0Provider>,
   //</React.StrictMode>,
   document.getElementById('root')
