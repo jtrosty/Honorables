@@ -9,7 +9,6 @@ function TeacherView() {
   const [mapCoordinates, setMapCoordinates] = React.useState([])
 
   React.useEffect(() => {
-    console.log(mapCoordinates)
     setMapCoordinates(mapCoordinates)
   }, [mapCoordinates])
 

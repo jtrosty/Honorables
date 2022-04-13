@@ -31,9 +31,7 @@ export class MapContainer extends Component {
         lng: -123.12,
       },
     }
-    //console.log(props.mapCoordinates)
   }
-
   render() {
     return (
       // These will update anytime the state updates
@@ -41,18 +39,18 @@ export class MapContainer extends Component {
         <Map
           google={this.props.google}
           initialCenter={{
-            lat: this.state.mapCoors[0],
-            lng: this.state.mapCoors[1],
+            lat: this.state.mapCenter.lat,
+            lng: this.state.mapCenter.lng,
           }}
           center={{
-            lat: this.state.mapCoors[0],
-            lng: this.state.mapCoors[1],
+            lat: this.props.mapCoordinates[0],
+            lng: this.props.mapCoordinates[1],
           }}
         >
           <Marker
             position={{
-              lat: this.state.mapCoors[0],
-              lng: this.state.mapCoors[1],
+              lat: this.props.mapCoordinates[0],
+              lng: this.props.mapCoordinates[1],
             }}
           />
         </Map>
@@ -62,7 +60,7 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: '',
+  apiKey: 'AIzaSyDxOWtRxo-wOF78YhBcXXz3YDvLIwuZWSw',
 })(MapContainer)
 
 // Took out places autocomplete cause dont need?
