@@ -1,3 +1,29 @@
+4/15/22
+This is done in the same directory as the 'client' folder in the project
+
+npm install react-router-dom
+
+npm install google-maps-react
+
+npm install react-places-autocomplete
+
+npm install bootstrap
+
+npm install react-bootstrap
+
+npm install node-fetch@2
+
+npm install axios
+
+npm install @auth0-/auth0-react
+
+
+
+This is done in the directory 'server'
+
+npm install mongoose express cors nodemon 
+
+
 4/4/2022 - in client npm install axios npm install node-fetch@2
 
 4.2.2022 - Use npm install jest to run app.test.js
