@@ -38,17 +38,7 @@ app.get('/get', (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-  //const status = req.body.status
-  //const username = req.body.username
-  //const role = req.body.role
-  //const email = req.body.email
-  //const classID = req.body.classID
-    //status,
-    //username,
-    //role,
-    //email,
-    //classID,
-  const studentData = req.body
+  const studentData = req.params.username
 
   const newStudent = new Student(studentData)
   newStudent.save()
@@ -58,15 +48,16 @@ app.post('/register', async (req, res) => {
   //res.json(studentData)
 })
 
-
 app.get('/getRegisterDataByName', async (req, res) => {
-  Student.find(req)
+  const search = req.query.username;
+
+  Student.findOne({search})
     .then(student => res.json(student))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 app.get('/getWikiData', (req, res) => {
-  wikiDataModel.find({}, (err, result1) => {
+  wikiDataModel.find({username: req.body}, (err, result1) => {
     if (err) {
       res.json(err)
     } else {
