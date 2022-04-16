@@ -49,9 +49,9 @@ app.post('/register', async (req, res) => {
 })
 
 app.get('/getRegisterDataByName', async (req, res) => {
-  const search = req.query.username;
-
-  Student.findOne({search})
+  const username = req.body.username;// http protocol stuff, express libary stuf
+  //{username: "test insomnia get"}
+  Student.findOne({username: {$eq: username}})
     .then(student => res.json(student))
     .catch(err => res.status(400).json('Error: ' + err));
 });
