@@ -6,7 +6,6 @@ const wikiDataSchema = new mongoose.Schema({
     },
     title: {
         type: String
-
     }, 
     coordinates: {
         type: Array
@@ -20,7 +19,6 @@ const wikiDataSchema = new mongoose.Schema({
     wikiUrl: {
         type: String
     }
-
 });
 
 //will automatically create table inside of mongodb if it does not exist 

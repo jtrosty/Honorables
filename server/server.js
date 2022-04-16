@@ -1,7 +1,7 @@
 // Load mongoose
 const express = require('express')
 const mongoose = require('mongoose')
-const SModel = require('./models/studentModel')
+const Student = require('./models/authentication')
 //For the wikidata
 const wikiDataModel = require('./models/wikiData')
 
@@ -13,7 +13,8 @@ app.use(express.json())
 app.use(cors())
 // Connect to mongoDB - Not sure if you guys wanted to use a specific credentials
 mongoose.connect(
-  'mongodb+srv://Honorables:CEN3031@imapcluster.jfezn.mongodb.net/HonorablesCluster?retryWrites=true&w=majority',
+  //'mongodb+srv://Honorables:CEN3031@imapcluster.jfezn.mongodb.net/HonorablesCluster?retryWrites=true&w=majority',
+  'mongodb+srv://test:test@cluster0.awbnv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
   {
     useNewUrlParser: true,
   }
@@ -35,36 +36,34 @@ app.get('/get', (req, res) => {
     }
   })
 })
-/*const status = req.body.status
-  const username = req.body.userName
-  const password = req.body.password
 
-  Student.findOne(
-    { status: status, userName: username, password: password },
-    function (err, user) {
-      if (err) {
-        console.log(err)
-        return res.status(500).send()
-      } else {
-        return res.status(200).send(user)
-      }
-    }
-  )*/
+app.post('/register', async (req, res) => {
+  //const status = req.body.status
+  //const username = req.body.username
+  //const role = req.body.role
+  //const email = req.body.email
+  //const classID = req.body.classID
+    //status,
+    //username,
+    //role,
+    //email,
+    //classID,
+  const studentData = req.body
 
-app.post('/register', function (req, res) {
-  const status = req.body.status
-  const username = req.body.username
-  const password = req.body.password
-  const email = req.body.email
-
-  const newStudent = new SModel({
-    status,
-    username,
-    password,
-    email,
-  })
+  const newStudent = new Student(studentData)
   newStudent.save()
+    .then(() => res.json('User Registered!'))
+    .catch(err => res.status(400).json('Error: ' + err));
+
+  //res.json(studentData)
 })
+
+
+app.get('/getRegisterDataByName', async (req, res) => {
+  Student.find(req)
+    .then(student => res.json(student))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 app.get('/getWikiData', (req, res) => {
   wikiDataModel.find({}, (err, result1) => {
@@ -85,6 +84,6 @@ app.post('/createWikiData', async (req, res) => {
 })
 
 // Sets the app to use port 3000
-app.listen(3000, () => {
-  console.log('Server is running at port 3000')
+app.listen(5000, () => {
+  console.log('Server is running at port 5000')
 })

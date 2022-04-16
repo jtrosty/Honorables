@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Profile from './Profile'
-import Register from './register'
+import Register from './Register'
 
 const Navbar = (props) => {
   return (
