@@ -14,8 +14,9 @@ const containerStyle = {
   style: 'border:0',
   position: 'relative',
 }
-// Create function that sets geocoordinates from react-geocoordinate
-// {}
+// Create function that sets geocoordinates from react-geocoordinate Battle of Waterloo
+// {} Battle of Gettysburg
+
 export class MapContainer extends Component {
   constructor(props) {
     super(props)
@@ -24,15 +25,46 @@ export class MapContainer extends Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-
+      mapCoors: props.mapCoordinates,
       mapCenter: {
         lat: 49.28,
         lng: -123.12,
       },
     }
   }
+  render() {
+    return (
+      // These will update anytime the state updates
+      <div style={containerStyle}>
+        <Map
+          google={this.props.google}
+          initialCenter={{
+            lat: this.state.mapCenter.lat,
+            lng: this.state.mapCenter.lng,
+          }}
+          center={{
+            lat: this.props.mapCoordinates[0],
+            lng: this.props.mapCoordinates[1],
+          }}
+        >
+          <Marker
+            position={{
+              lat: this.props.mapCoordinates[0],
+              lng: this.props.mapCoordinates[1],
+            }}
+          />
+        </Map>
+      </div>
+    )
+  }
+}
 
-  handleChange = (address) => {
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyDxOWtRxo-wOF78YhBcXXz3YDvLIwuZWSw',
+})(MapContainer)
+
+// Took out places autocomplete cause dont need?
+/*handleChange = (address, mapCoordinates) => {
     this.setState({ address })
   }
 
@@ -83,29 +115,4 @@ export class MapContainer extends Component {
             </div>
           )}
         </PlacesAutocomplete>
-        <Map
-          google={this.props.google}
-          initialCenter={{
-            lat: this.state.mapCenter.lat,
-            lng: this.state.mapCenter.lng,
-          }}
-          center={{
-            lat: this.state.mapCenter.lat,
-            lng: this.state.mapCenter.lng,
-          }}
-        >
-          <Marker
-            position={{
-              lat: this.state.mapCenter.lat,
-              lng: this.state.mapCenter.lng,
-            }}
-          />
-        </Map>
-      </div>
-    )
-  }
-}
-
-export default GoogleApiWrapper({
-  apiKey: '',
-})(MapContainer)
+        */
