@@ -67,7 +67,17 @@ app.post('/register', function (req, res) {
 })
 
 app.get('/getWikiData', (req, res) => {
-  wikiDataModel.find({}, (err, result1) => {
+  wikiDataModel.find({ assignment: req.query.assNum }, (err, result1) => {
+    if (err) {
+      res.json(err)
+    } else {
+      res.json(result1)
+    }
+  })
+})
+
+app.get('/getAssNums', (req, res) => {
+  wikiDataModel.find({}, 'assignment', (err, result1) => {
     if (err) {
       res.json(err)
     } else {
@@ -85,6 +95,6 @@ app.post('/createWikiData', async (req, res) => {
 })
 
 // Sets the app to use port 3000
-app.listen(3000, () => {
-  console.log('Server is running at port 3000')
+app.listen(5000, () => {
+  console.log('Server is running at port 5000')
 })

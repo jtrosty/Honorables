@@ -14,7 +14,7 @@ const containerStyle = {
   style: 'border:0',
   position: 'relative',
 }
-// Create function that sets geocoordinates from react-geocoordinate Battle of Waterloo
+// Create function that sets geocoordinates from react-geocoordinate Battle of Marathon vvvv Battle of Waterloo
 // {} Battle of Gettysburg
 
 export class MapContainer extends Component {

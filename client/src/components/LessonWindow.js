@@ -26,7 +26,7 @@ export default function LessonWindow({ setMapCoordinates }) {
   //to display what is currently at the get request
   useEffect(() => {
     axios
-      .get('http://localhost:3000/getWikiData')
+      .get('/getWikiData/')
       .then((response) => setListOfEvents(response.data))
   }, [])
 
@@ -142,7 +142,7 @@ export default function LessonWindow({ setMapCoordinates }) {
   //titleUI was not the name associated with the backend
   const createEvent = () => {
     axios
-      .post('http://localhost:3000/createWikiData', {
+      .post('http://localhost:5000/createWikiData/', {
         assignment: assignment,
         title: titleUI,
         coordinates: coordinates,
