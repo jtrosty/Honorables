@@ -38,7 +38,7 @@ app.get('/get', (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-  const studentData = req.params.username
+  const studentData = req.body
 
   const newStudent = new Student(studentData)
   newStudent.save()
@@ -49,15 +49,23 @@ app.post('/register', async (req, res) => {
 })
 
 app.get('/getRegisterDataByName', async (req, res) => {
-  const username = req.body.username;// http protocol stuff, express libary stuf
+  console.log(req.body);
+  const username = await req.body.username;// http protocol stuff, express libary stuf
   //{username: "test insomnia get"}
-  Student.findOne({username: {$eq: username}})
-    .then(student => res.json(student))
-    .catch(err => res.status(400).json('Error: ' + err));
+  Student.findOne({username: req.query.username}, (err, result) => {
+    console.log(username)
+    if (err) {
+      res.json(err)
+    } else {
+      res.json(result)
+      console.log(result)
+      console.log(res.get('username'))
+    }
+  })
 });
 
 app.get('/getWikiData', (req, res) => {
-  wikiDataModel.find({username: req.body}, (err, result1) => {
+  wikiDataModel.find({}, (err, result1) => {
     if (err) {
       res.json(err)
     } else {

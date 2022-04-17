@@ -5,6 +5,7 @@ import map from '../img/map.jpg'
 import LoginButton from './Login'
 import LogoutButton from './Logout'
 import Profile from './Profile'
+import RegisterForm from './RegisterForm'
 
 function Home() {
   const [accessLevel, setAccessLevel] = React.useState('')
@@ -62,7 +63,14 @@ function Home() {
             >
               Student View
             </Button>
-
+            <Button
+              variant='secondary'
+              type='submit'
+              style={{ marginBottom: '15px' }}
+              href={'/RegisterForm'}
+            >
+              Register Form
+            </Button>
           </Form>
           <Card className='mb-3' style={{ color: '#000' }}>
             <Card.Img variant='top' src={map} style={{ height: '25rem' }} />
