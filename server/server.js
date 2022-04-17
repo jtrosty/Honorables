@@ -13,8 +13,7 @@ app.use(express.json())
 app.use(cors())
 // Connect to mongoDB - Not sure if you guys wanted to use a specific credentials
 mongoose.connect(
-  //'mongodb+srv://Honorables:CEN3031@imapcluster.jfezn.mongodb.net/HonorablesCluster?retryWrites=true&w=majority',
-  'mongodb+srv://test:test@cluster0.awbnv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+  'mongodb+srv://Honorables:CEN3031@imapcluster.jfezn.mongodb.net/HonorablesCluster?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
   }
@@ -41,18 +40,19 @@ app.post('/register', async (req, res) => {
   const studentData = req.body
 
   const newStudent = new Student(studentData)
-  newStudent.save()
+  newStudent
+    .save()
     .then(() => res.json('User Registered!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch((err) => res.status(400).json('Error: ' + err))
 
   //res.json(studentData)
 })
 
 app.get('/getRegisterDataByName', async (req, res) => {
-  console.log(req.body);
-  const username = await req.body.username;// http protocol stuff, express libary stuf
+  console.log(req.body)
+  const username = await req.body.username // http protocol stuff, express libary stuf
   //{username: "test insomnia get"}
-  Student.findOne({username: req.query.username}, (err, result) => {
+  Student.findOne({ username: req.query.username }, (err, result) => {
     console.log(username)
     if (err) {
       res.json(err)
@@ -62,7 +62,7 @@ app.get('/getRegisterDataByName', async (req, res) => {
       console.log(res.get('username'))
     }
   })
-});
+})
 
 app.get('/getWikiData', (req, res) => {
   wikiDataModel.find({ assignment: req.query.assNum }, (err, result1) => {
