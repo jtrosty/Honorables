@@ -118,37 +118,3 @@ function RegisterForm() {
     )
 }
 export default RegisterForm;
-
-//                <Form.Group controlId='formSelect'>
-//                    <Form.Label>Describe Yourself</Form.Label>
-//                    <Form.Select
-//                    value={role}
-//                    onChange={setRole}
-//                    aria-label='Default select example'
-//                    >
-//                    <option>Select Role</option>
-//                    <option>Teacher</option>
-//                    <option>Student</option>
-//                    </Form.Select>
-//                </Form.Group>
-//                <Form.Group controlId='formSelect'>
-//                    <Form.Label>Describe Yourself</Form.Label>
-//                    <Form.Select
-//                    value={classID}
-//                    onChange={setClassID}
-//                    aria-label='Default select example'
-//                    >
-//                    <option>Slected Course</option>
-//                    <option>HIST101</option>
-//                    <option>HIST102</option>
-//                    </Form.Select>
-//                </Form.Group>
-//                <Button
-//                variant='secondary'
-//                type='submit'
-//                style={{ marginBottom: '15px' }}
-//                onClick={multipleItems()} 
-//                >
-//                Register Now
-//                </Button>
-//                <Profile />
