@@ -22,25 +22,5 @@ app.post('/login', function (req, res) {
   )
 })
 
-app.post('/register', function (req, res) {
-  const status = 'Student'
-  const userName = req.body.username
-  const password = req.body.password
-  const email = req.body.email
-
-  const newStudent = new Student()
-  newStudent.status = status
-  newStudent.userName = userName
-  newStudent.password = password
-  newStudent.email = email
-  newStudent.save(function (err, savedStudent) {
-    if (err) {
-      console.log(err)
-      return res.status(500).send()
-    } else {
-      return res.status(200).send()
-    }
-  })
-})
 
 module.exports = app
