@@ -61,7 +61,7 @@ function Home() {
               style={{ marginBottom: '15px' }}
               href={accessLevel === 'Teacher' ? '/TeacherView' : '/Lesson'}
             >
-              Student View
+              Click To Login
             </Button>
             <Button
               variant='secondary'
