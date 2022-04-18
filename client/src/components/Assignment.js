@@ -4,6 +4,9 @@ import axios from 'axios'
 
 export default function Assignment(props) {
   const [questions, setQuestions] = useState([])
+  const [answers, setAnswers] = useState([])
+  const [grade, setGrade] = useState([])
+
   useEffect(() => {
     axios
       .get('http://localhost:5000/getWikiData', {
@@ -12,6 +15,30 @@ export default function Assignment(props) {
       .then((response) => setQuestions(response.data))
   }, [props.assignment])
   console.log(questions)
+
+  function handleAnswer(event) {
+    setAnswers(...answers, event.target.value)
+  }
+
+  function rightOrWrong(studentAnswer, teacherAnswer) {
+    if (studentAnswer.toLowerCase() === teacherAnswer.toLowerCase()) {
+      setGrade(...grade, 1)
+      return <a>Correct!</a>
+    } else {
+      setGrade(...grade, 0)
+      return <a>Wrong!</a>
+    }
+  }
+
+  function finalGrade() {
+    let correctAnswers = 0
+    for (const x of grade) {
+      if (x == 1) {
+        correctAnswers++
+      }
+    }
+  }
+
   return (
     <div>
       <div>
@@ -22,7 +49,7 @@ export default function Assignment(props) {
               <p>Question Number: {index + 1} </p>
               <p>Question: {question.teacherQuestion}</p>
               <input placeholder='Answer Here'></input>
-              <button>Submit</button>
+              <button onSubmit={handleAnswer}>Submit</button>
             </div>
           )
         })}
