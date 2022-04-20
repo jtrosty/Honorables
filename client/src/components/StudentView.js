@@ -23,7 +23,7 @@ function StudentView() {
           <StudentLesson setMapCoordinates={setMapCoordinates} />
         </div>
         <div className='container col-6'>
-          <GoogleMap mapCoordinates={[39, -77]} />
+          <GoogleMap mapCoordinates={mapCoordinates} />
         </div>
       </div>
       <div className='row-1'>The bottom</div>
