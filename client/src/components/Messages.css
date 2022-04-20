@@ -1,0 +1,74 @@
+body {
+    background-color: #FAF9F6;
+}
+
+.messageDisplay {
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.sender {
+    
+    background-color: #659DBD;
+    align-self: flex-end;
+    border-radius: 10px;
+    
+    
+  
+    /*float: right;
+    display: inline-block;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    #1982FC 
+    */
+    text-align: right;
+    width: fit-content;
+    height: fit-content;
+   float: right;
+   
+    
+}
+
+.receiver {
+    
+    background-color:#D3D3D3;
+    border-radius: 10px;
+    
+    /*float: left
+    display: inline-block;
+    */
+    width: fit-content;
+    height: fit-content;
+    float: left;
+    
+    
+}
+
+.ourForm {
+    text-align: center;
+    
+    
+}
+
+
+.ourHeader {
+    text-align: center;
+    color: black;
+}
+
+.senderText {
+    color: white;
+    font-size: x-large;
+}
+
+.receiverText {
+    color: black;
+    font-size: x-large;
+}
+
+.receiverName {
+    font-size: small;
+}
