@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const Student = require('./models/authentication')
 //For the wikidata
 const wikiDataModel = require('./models/wikiData')
+const chatDataModel = require('./models/chat')
 
 const cors = require('cors')
 
@@ -91,6 +92,24 @@ app.post('/createWikiData', async (req, res) => {
 
   res.json(wikiData)
 })
+
+app.get("/getChatData", (req, res) => {
+  chatDataModel.find({}, (err, result2) => {
+    if(err){
+      res.json(err);
+    }else {
+      res.json(result2);
+    }
+  });
+});
+
+app.post("/createChatData", async (req, res) => {
+  const chatData = req.body;
+  const newChatData = new chatDataModel(chatData);
+  await newChatData.save();
+
+  res.json(chatData);
+});
 
 // Sets the app to use port 3000
 app.listen(5000, () => {
