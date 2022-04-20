@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Assignment from './Assignment'
+import StudentLessonWindow from './StudentLessonWindow'
 
 export default function StudentLesson({ setMapCoordinates }) {
   const [assignments, setAssignments] = useState(null) // Sets the assignments the students will choose from (Drop down menu of assignments)
@@ -34,7 +35,10 @@ export default function StudentLesson({ setMapCoordinates }) {
       </select>
       <div>
         {currentAssignment ? (
-          <Assignment assignment={currentAssignment} />
+          <div>
+            <StudentLessonWindow setMapCoordinates={setMapCoordinates} />
+            <Assignment assignment={currentAssignment} />
+          </div>
         ) : (
           'Waiting for Selection...'
         )}

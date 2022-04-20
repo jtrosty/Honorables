@@ -1,19 +1,47 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 export default function Assignment(props) {
   const [questions, setQuestions] = useState([])
   const [answers, setAnswers] = useState([])
   const [grade, setGrade] = useState([])
-  const [finalGrade, setFinalGrade] = useState(null)
+  const [finalGrade, setFinalGrade] = useState(-1)
   const [currentAnswer, setCurrentAnswer] = useState('')
   const [progressBar, setProgressBar] = useState([])
+  const [progress, setProgress] = useState(null)
 
   function handleAnswer() {
     answers.push(currentAnswer)
     progressBar.pop()
+    updateProg()
     console.log(answers)
+  }
+
+  function calcFinalGrade() {
+    let correctAnswers = 0
+    for (let i = 0; i < answers.length; i++) {
+      if (
+        answers[i].toLowerCase() === questions[i].questionAnswer.toLowerCase()
+      ) {
+        correctAnswers++
+      }
+    }
+    setFinalGrade((correctAnswers / questions.length) * 100)
+    console.log(
+      'correct Ans: ' +
+        correctAnswers +
+        ' questions.length: ' +
+        questions.length
+    )
+  }
+
+  function updateProg() {
+    setProgress({
+      ...progress,
+      prog: (answers.length / questions.length) * 100,
+    })
   }
 
   useEffect(() => {
@@ -28,28 +56,7 @@ export default function Assignment(props) {
     setProgressBar(Array(questions.length).fill(1))
   }, [])
 
-  console.log(answers)
-  function rightOrWrong(studentAnswer, teacherAnswer) {
-    console.log('rightOrWrong')
-    if (studentAnswer.toLowerCase() === teacherAnswer.toLowerCase()) {
-      setGrade(...grade, 1)
-      return <a>Correct!</a>
-    } else {
-      setGrade(...grade, 0)
-      return <a>Wrong!</a>
-    }
-  }
-
-  function calcFinalGrade() {
-    let correctAnswers = 0
-    for (const x of grade) {
-      if (x === 1) {
-        correctAnswers++
-      }
-    }
-    let grade = (correctAnswers / answers.length) * 100
-    return <div>Final Grade: {grade}</div>
-  }
+  //console.log(answers)
 
   return (
     <div>
@@ -67,23 +74,25 @@ export default function Assignment(props) {
                 }}
               ></input>
               <button onClick={() => handleAnswer()}>Submit</button>
-              {answers.length === parseInt(index) + 1 ? (
-                <a>Thank You</a>
-              ) : (
-                <div></div>
-              )}
             </div>
           )
         })}
       </div>
+      <br />
       <div className='container'>
-        <p>Progress Indicator</p>
-        {answers.map((value, index) => {
-          return <a id={index}>O</a>
-        })}
-        {progressBar.map((value, index) => {
-          return <a id={index}>X</a>
-        })}
+        <div class='row'>
+          <div class='col text-center'>
+            <p>Progress Indicator</p>
+            <ProgressBar
+              striped
+              variant='success'
+              now={(answers.length / questions.length) * 100}
+            />
+            <br />
+            <button onClick={calcFinalGrade}>Submit For Grading</button>
+          </div>
+          {finalGrade === -1 ? <a></a> : <a>Final Grade: {finalGrade}%</a>}
+        </div>
       </div>
     </div>
   )
@@ -92,4 +101,12 @@ export default function Assignment(props) {
                 rightOrWrong(answers[index], question.questionAnswer)
               ) : (
                 <div></div>
-              )}*/
+              )}
+ Baltimore Belgium False
+        {answers.map((value, index) => {
+          return <a id={index}>O</a>
+        })}
+        {progressBar.map((value, index) => {
+          return <a id={index}>X</a>
+        })}             
+*/
