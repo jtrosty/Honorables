@@ -27,9 +27,9 @@ export default function StudentLesson({ setMapCoordinates }) {
     <div>
       <a>Select Assignment</a>
       <select value={currentAssignment} onChange={handleAssignmentChange}>
-        <option>2</option>
         <option>1</option>
-        <option>2000</option>
+        <option>7</option>
+        <option>3</option>
         <option>4</option>
         <option>5</option>
       </select>

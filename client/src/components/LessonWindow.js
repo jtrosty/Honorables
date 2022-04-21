@@ -141,6 +141,7 @@ export default function LessonWindow({ setMapCoordinates }) {
   //posts
   //titleUI was not the name associated with the backend
   const createEvent = () => {
+    //handle()
     axios
       .post('http://localhost:5000/createWikiData/', {
         assignment: assignment,
