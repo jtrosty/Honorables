@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const fetch = require('node-fetch')
 
-export default function LessonWindow({ setMapCoordinates }) {
+export default function StudentLessonWindow({ setMapCoordinates }) {
   //listOfEvents is from the get request
   //var descriptionTest = await fetchDescriptionJSON(titleUI);
   //console.log(descriptionTest);
@@ -29,7 +29,6 @@ export default function LessonWindow({ setMapCoordinates }) {
       .get('/getWikiData/')
       .then((response) => setListOfEvents(response.data))
   }, [])
-
   function handle() {
     //alert("Hello");
     //setAssignment(100);
@@ -194,59 +193,6 @@ export default function LessonWindow({ setMapCoordinates }) {
   return (
     <div class='container'>
       <div className='createLesson'></div>
-      <div
-        className='d-flex justify-content-center'
-        style={{ marginTop: '5px' }}
-      >
-        <textarea
-          rows='5'
-          cols='46'
-          placeholder='Question'
-          onChange={(event) => {
-            setTeacherQuestion(event.target.value)
-          }}
-        ></textarea>
-      </div>
-      <div
-        className='d-flex justify-content-center'
-        style={{ marginTop: '5px' }}
-      >
-        <textarea
-          rows='2'
-          cols='46'
-          placeholder='Answer'
-          onChange={(event) => {
-            setQuestionAnswer(event.target.value)
-          }}
-        ></textarea>
-      </div>
-      <div
-        className='d-flex justify-content-center'
-        style={{ marginTop: '5px' }}
-      >
-        <textarea
-          rows='2'
-          cols='46'
-          placeholder='Description...'
-          onChange={(event) => {
-            setDescription(event.target.value)
-          }}
-        ></textarea>
-      </div>
-      <div
-        className='d-flex justify-content-center'
-        style={{ marginTop: '5px' }}
-      >
-        <input
-          type='number'
-          placeholder='Assignment Number...'
-          onChange={(event) => {
-            setAssignment(event.target.value)
-          }}
-        />
-
-        <button onClick={displayAssignment}>Update Assignment #</button>
-      </div>
 
       <div
         className='d-flex justify-content-center'
@@ -260,14 +206,7 @@ export default function LessonWindow({ setMapCoordinates }) {
           }}
         />
 
-        <button onClick={handle}> Add Details </button>
-      </div>
-
-      <div
-        className='d-flex justify-content-center'
-        style={{ marginTop: '5px' }}
-      >
-        <button onClick={createEvent}> Post Event </button>
+        <button onClick={handle}> Search Wiki </button>
       </div>
 
       <div></div>

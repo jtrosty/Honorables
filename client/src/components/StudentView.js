@@ -3,26 +3,30 @@ import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import Navbar from './Navbar'
 import Messages from './Messages'
 import GoogleMap from './GoogleMap'
-import LessonWindow from './LessonWindow'
-import Profile from './Profile'
+import StudentLesson from './StudentLesson'
 
 function StudentView() {
+  const [mapCoordinates, setMapCoordinates] = React.useState([])
+
+  React.useEffect(() => {
+    setMapCoordinates(mapCoordinates)
+  }, [mapCoordinates])
+
   const access = 'Student'
   return (
-    <div class='container'>
-      <div class='row'>
+    <div className='container'>
+      <div className='row'>
         <Navbar access={access} />
-        <Profile />
       </div>
-      <div class='row'>
-        <div class='col-6'>
-          <LessonWindow />
+      <div className='row'>
+        <div className='col-6'>
+          <StudentLesson setMapCoordinates={setMapCoordinates} />
         </div>
-        <div class='container col-6'>
-          <GoogleMap />
+        <div className='container col-6'>
+          <GoogleMap mapCoordinates={mapCoordinates} />
         </div>
       </div>
-      <div class='row-1'>The bottom</div>
+      <div className='row-1'>The bottom</div>
     </div>
   )
 }
