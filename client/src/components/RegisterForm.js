@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
-import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
-import Profile from './Profile';
-import { Container, Row, Col, Button, Alert, Card, Form } from 'react-bootstrap'
-import { Auth0Provider, User, useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
+import { Row, Col, Form } from 'react-bootstrap'
+import { User, useAuth0 } from '@auth0/auth0-react';
+import Navbar from './Navbar';
 
 
 function RegisterForm() {
     const [status, setStatus] = useState(null);
-    const {user, isAuthenticated } = useAuth0();
+    const {user} = useAuth0();
     const [username, setUsername] = useState(null);
     const [role, setRole] = useState(null);
     const [email, setEmail] = useState(null);
@@ -22,18 +22,18 @@ function RegisterForm() {
     function handleClassSelection(eventRole) {
         setClassID(eventRole.target.value)
     }
- //   alert(`Check if this works
- //           status:   ${status}, 
- //           username: ${username}, 
- //           role:     ${role}, 
- //           email:    ${email}, 
- //           classID:  ${classID}`)
+
+    let navigate = useNavigate();
+    const routeChange = () =>{
+        let path = '/';
+        navigate(path);
+    }
     
     function multipleItems() {
+        setStatus(true);
         setEmail(user.email);
         setUsername(user.name);
         setStatus(true);
-        const getUser = {username: username};
         axios.get('http://localhost:5000/getRegisterDataByName', 
                     { 
                         params: { username: username }
@@ -41,6 +41,12 @@ function RegisterForm() {
             )
             .then((response) => setIfRegistered(response.data));
             console.log(checkIfRegistered);
+      //  alert(`Check if this works part 2
+      //          status:   ${status}, 
+      //          username: ${username}, 
+      //          role:     ${role}, 
+      //          email:    ${email}, 
+      //          classID:  ${classID}`)
         
         if (checkIfRegistered === null) {
             axios
@@ -56,26 +62,26 @@ function RegisterForm() {
                 })
         }
         else {
-            alert(`Check if this works part 2
-                    status: ${checkIfRegistered.status}, 
-                    username: ${checkIfRegistered.username}, 
-                    role: ${checkIfRegistered.role}, 
-                    email: ${checkIfRegistered.email}, 
-                    classID: ${checkIfRegistered.classID}`)
+       //     alert(`Check if this works part 2
+       //             status: ${checkIfRegistered.status}, 
+       //             username: ${checkIfRegistered.username}, 
+       //             role: ${checkIfRegistered.role}, 
+       //             email: ${checkIfRegistered.email}, 
+       //             classID: ${checkIfRegistered.classID}`)
         }
-    }
+       // if (role === 'Teacher') {
+       //     path = '/TeacherView'
 
-        //    <Button
-        //        type='button'
-        //        class='btn btn-primary'
-        //        onClick={multipleItems()} 
-        //        >
-        //        Register 
-        //    </Button>
+       // }
+       // if (role === 'Student') {
+       //     path = '/Lesson'
+       // }
+       // routeChange();
+    }
     return (
         <div class='container'>
-            <div className='createLesson'>Hello</div>
-            <Profile />
+            <Navbar />
+            <div className='User Not Registered'>Hello</div>
             <Row>
                 <Col sm>
                     <Form.Group controlId='formRole'>
