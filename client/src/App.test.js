@@ -39,6 +39,14 @@ test('renders learn react link', () => {
   const linkElement = screen.getByText(/Navbar/i)
   expect(linkElement).toBeInTheDocument()
 })
+
+//Testing LessonWindow Component 
+test('renders learn react link', () => {
+  render(<LessonWindow />)
+  const linkElement = screen.getByText(/Create Lesson/i)
+  expect(linkElement).toBeInTheDocument()
+})
+
 /*/ Testing Messages component - Does not have implementation yet
 test('renders learn react link', () => {
   render(<Messages />)
