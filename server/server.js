@@ -93,23 +93,23 @@ app.post('/createWikiData', async (req, res) => {
   res.json(wikiData)
 })
 
-app.get("/getChatData", (req, res) => {
+app.get('/getChatData', (req, res) => {
   chatDataModel.find({}, (err, result2) => {
-    if(err){
-      res.json(err);
-    }else {
-      res.json(result2);
+    if (err) {
+      res.json(err)
+    } else {
+      res.json(result2)
     }
-  });
-});
+  })
+})
 
-app.post("/createChatData", async (req, res) => {
-  const chatData = req.body;
-  const newChatData = new chatDataModel(chatData);
-  await newChatData.save();
+app.post('/createChatData', async (req, res) => {
+  const chatData = req.body
+  const newChatData = new chatDataModel(chatData)
+  await newChatData.save()
 
-  res.json(chatData);
-});
+  res.json(chatData)
+})
 
 // Sets the app to use port 3000
 app.listen(5000, () => {
