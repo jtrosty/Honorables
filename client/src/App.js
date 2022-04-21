@@ -10,6 +10,7 @@ import ErrorPage from './components/ErrorPage'
 import TeacherView from './components/TeacherView'
 import Messages from './components/Messages'
 import RegisterForm from './components/RegisterForm'
+import IsRegistered from './components/isRegistered'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/TeacherView' exact element={<TeacherView />} />
         <Route path='/Messages' exact element={<Messages />} />
         <Route path='/RegisterForm' exact element={<RegisterForm />} />
+        <Route path='/isRegistered' exact element={<IsRegistered />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>

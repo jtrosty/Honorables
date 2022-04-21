@@ -38,7 +38,7 @@ const Navbar = (props) => {
           </li>
           <li class='nav-item'>
             <a class='nav-link' href='/'>
-              Logout
+              Home  
             </a>
           </li>
         </ul>

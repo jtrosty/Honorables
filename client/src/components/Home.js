@@ -1,76 +1,88 @@
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Button, Alert, Card, Form } from 'react-bootstrap'
 import map from '../img/map.jpg'
 import LoginButton from './Login'
 import LogoutButton from './Logout'
+import RegisterButton from './RegisterButton'
+import LessonButton from './LessonButton'
 import Profile from './Profile'
 import RegisterForm from './RegisterForm'
+import {isAuthenticated, useAuth0} from '@auth0/auth0-react'
+import axios from 'axios'
+import StudentView from './StudentView'
+import TeacherViewButton from './TeacherViewButton'
 
 function Home() {
-  const [accessLevel, setAccessLevel] = React.useState('')
+  const [accessLevel, setAccessLevel] = useState(false);
+  const {isAuthenticated, user} = useAuth0();
+  const [profile, setIfRegistered] = useState([null]);
+  const [isStudent, setStudent] = useState(false);
+  const [isTeacher, setTeacher] = useState(false);
+  const [getProfileNotRun, setIfRan] = useState(true);
+  const [isNotRegistered, setNotRegistration] = useState(false);
 
-  function handleAccessChange(event) {
-    setAccessLevel(event.target.value)
+
+
+  function getUserProfile() {
+    setIfRan(false);
+      
+    axios.get('http://localhost:5000/getRegisterDataByName', 
+                { 
+                    params: { username: user.name }
+                }
+        )
+        .then((response) => setIfRegistered(response.data));
+    if (profile.role === 'Student') {
+      setStudent(true);
+      //alert(`Person is a ${profile.role}`);
+    }
+    if (profile.role === 'Teacher') {
+      setTeacher(true);
+    }
+    if (profile === null) {
+      setNotRegistration(true);
+    }
   }
+
+  useEffect(() => {
+    if (isAuthenticated && getProfileNotRun) {
+      getUserProfile();
+    }
+    if (profile != null) {
+      if (profile.role === 'Teacher') {
+        setTeacher(true);
+      }
+      if (profile.role === 'Student') {
+        setStudent(true);
+        //alert(`we made it student is ${isStudent}`)
+      }
+    }
+    else {
+      setNotRegistration(true);
+      }
+    }
+)
 
   return (
     <div className='App'>
       <header className='App-header'>
         <Container>
           <Form>
+            <div>
+              {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+            </div>
+            <div>
             <Row>
-              <Col md>
-                <Form.Group controlId='formEmail'>
-                  <Form.Label>Email Address</Form.Label>
-                  <Form.Control type='email' placeholder='Example@email.com' />
-                  <Form.Text className='text-muted'>
-                    From Student/Teacher Profile
-                  </Form.Text>
-                </Form.Group>
-              </Col>
-              <Col md>
-                <Form.Group controlId='formPassword'>
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type='password' />
-                </Form.Group>
-              </Col>
-              <Col md>
-                <Form.Group controlId='formSelect'>
-                  <Form.Label>Describe Yourself</Form.Label>
-                  <Form.Select
-                    value={accessLevel}
-                    onChange={handleAccessChange}
-                    aria-label='Default select example'
-                  >
-                    <option>Choose Your Title</option>
-                    <option>Teacher</option>
-                    <option>Student</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col md>
-                <Profile />
-              </Col>
+              { isStudent ? <LessonButton /> : <div />}
             </Row>
-            <LoginButton />
-            <LogoutButton />
-            <Button
-              variant='secondary'
-              type='submit'
-              style={{ marginBottom: '15px' }}
-              href={accessLevel === 'Teacher' ? '/TeacherView' : '/Lesson'}
-            >
-              Student View
-            </Button>
-            <Button
-              variant='secondary'
-              type='submit'
-              style={{ marginBottom: '15px' }}
-              href={'/RegisterForm'}
-            >
-              Register Form
-            </Button>
+            <Row>
+              { isTeacher ? <TeacherViewButton /> : <div />}
+            </Row>
+            <Row>
+              { isNotRegistered ? <RegisterButton /> : <div />}
+            </Row>
+            </div>
           </Form>
           <Card className='mb-3' style={{ color: '#000' }}>
             <Card.Img variant='top' src={map} style={{ height: '25rem' }} />
@@ -78,6 +90,7 @@ function Home() {
               <Card.Title>Welcome to iMap</Card.Title>
               <Card.Text>
                 Get ready for an imersive and interactive learning experience!
+                
               </Card.Text>
               <Button variant='primary'>Read More</Button>
             </Card.Body>

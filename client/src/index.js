@@ -11,17 +11,16 @@ ReactDOM.render(
   <Auth0Provider
     domain='dev-itxholhm.us.auth0.com'
     clientId='fIYYSEMQ9OBM0fkL6gOu0yc5CaB5CFVS'
-    redirectUri={window.location.origin}
+    redirectUri={'http://localhost:3000'}
     >
-  <App />
-=======
-  >
-    <App />
+      <App />
+
   </Auth0Provider>,
   //</React.StrictMode>,
   document.getElementById('root')
 )
 
+    //redirectUri={window.location.origin}
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
