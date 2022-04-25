@@ -1,23 +1,48 @@
+
+Accounts to log in with:
+honorables.unregistered@maildrop.cc
+pq: !234Easy
+
+honorables.student@maildrop.cc
+pq: !234Easy
+
+
+How to build the project:
+1. Must have Node.js installed
+2. git clone https://github.com/jtrosty/Honorables.git 
+3. Perform a npx create-react-app extra. (Yes craete, a react app otuside the git clone repo.  We were unable to have the 'node_modules' folder in the github.
+4. Copy the 'node_modules' director from app you just created, called extra in this case, to the client directory within 'Honorables'.  
+5. Go to the 'client' directory and install the following dependencies.
+    npm install react-router-dom
+    npm install react-bootstrap
+    npm install bootstrap
+    npm install node-fetch@2
+    npm install axios
+    npm install jest
+    npm install @auth0/auth0-react
+    npm install react-places-autocomplete
+    npm install google-maps-react (may need to use --force)
+
+6. cd .., and go into the server directory. 
+7. In server 
+    npm init -y
+    npm install express cors mongoose nodemon
+8. Open a terminal for the front end. and the node terminal for the server. 
+9. Take the node termianl and navigate to the server directory (honorables/server) and use the command 'nodemon server.'  The server should be running.
+10. With the ohter terminal, navigate to the client directory (honorables/client) and type npm start.  The website should be running on port 3000. 
+
+
 4/15/22
 This is done in the same directory as the 'client' folder in the project
 
 npm install react-router-dom
-
 npm install google-maps-react
-
 npm install react-places-autocomplete
-
 npm install bootstrap
-
 npm install react-bootstrap
-
 npm install node-fetch@2
-
 npm install axios
-
-npm install @auth0-/auth0-react
-
-
+npm install @auth0/auth0-react
 
 This is done in the directory 'server'
 
