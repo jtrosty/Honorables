@@ -26,7 +26,7 @@ function TeacherView() {
           <GoogleMap mapCoordinates={mapCoordinates} />
         </div>
       </div>
-      <div className='row-1'></div>
+      <div className='row-1'>The bottom</div>
     </div>
   )
 }
