@@ -30,7 +30,7 @@ test('renders learn react link', () => {
 // Testing StudentView component
 test('renders learn react link', () => {
   render(<StudentView />)
-  const linkElement = screen.getByText(/Select Assignment/i)
+  const linkElement = screen.getByText(/The bottom/i)
   expect(linkElement).toBeInTheDocument()
 })
 // Testing Navbar component
