@@ -194,6 +194,8 @@ export default function LessonWindow({ setMapCoordinates }) {
   return (
     <div class='container'>
       <div className='createLesson'></div>
+    <div className='d-flex justify-content-center'
+        style={{ marginTop: '5px' }}>Create Lesson</div>
       <div
         className='d-flex justify-content-center'
         style={{ marginTop: '5px' }}
