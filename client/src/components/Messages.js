@@ -170,7 +170,7 @@ return(
         </div>
       
         <form onSubmit={createMessage} className= "ourForm">
-            <input classname = "inputBox" value={text} onChange={(event) => 
+            <input className = "inputBox" value={text} onChange={(event) => 
                 helper2(event.target.value)
                 
                 } placeholder = "Send a message..." />
